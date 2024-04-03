@@ -1,9 +1,10 @@
 const socket = new WebSocket('ws://localhost:3000')
+const input = document.querySelector('input')
+const form = document.querySelector('form')
+const ul = document.querySelector('ul')
 
 function sendMessage(e) {
     e.preventDefault()
-
-    const input = document.querySelector('input')
 
     if (input.value){
         socket.send(input.value)
@@ -12,12 +13,11 @@ function sendMessage(e) {
     input.focus()
 }
 
-document.querySelector('form')
-    .addEventListener('submit', sendMessage)
+form.addEventListener('submit', sendMessage)
 
 // Listen for message we may receive from the server
 socket.addEventListener('message', ({ data }) => {
     const li = document.createElement('li')
     li.textContent = data
-    document.querySelector('ul').appendChild(li)
+    ul.appendChild(li)
 })
