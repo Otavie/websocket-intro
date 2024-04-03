@@ -39,4 +39,10 @@ ul {
   border: 1px solid black;
   min-height: 3rem;
   width: 80%;
+  font-size: 1rem;
+  color: #CCC;
+}
+
+ul li {
+  padding: 0.5rem 1rem;
 }
